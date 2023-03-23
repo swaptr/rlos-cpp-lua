@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(rlos-cpp-lua VERSION 1.0.0 DESCRIPTION "rlos submission" LANGUAGES C CXX)
+project(rlos-cpp-lua VERSION 1.0.0 DESCRIPTION "rlos exercise 2 submission" LANGUAGES C CXX)
 
 add_library(
     LuaLibrary STATIC
@@ -37,3 +37,11 @@ add_library(
     lua/lvm.c
     lua/lzio.c
 )
+
+set_target_properties(LuaLibrary PROPERTIES FOLDER Libraries/lua)
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
+set(CMAKE_DEBUG_POSTFIX "")
+
+add_subdirectory(exercise)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR})
