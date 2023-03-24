@@ -15,34 +15,34 @@ namespace
         luaL_dostring(lua, "print('Swapnil says hello')");
     }
 
-    void PassIntToLua(lua_State *lua, int i)
+    void PassIntToLua(lua_State *lua, int number)
     {
         // Push integer value onto the stack
-        lua_pushinteger(lua, i);
+        lua_pushinteger(lua, number);
         // Set a global variable in the current environment
-        lua_setglobal(lua, "i");
+        lua_setglobal(lua, "number");
         // Display its value
-        luaL_dostring(lua, "print('Value of i: ' .. tostring(i))");
+        luaL_dostring(lua, "print('Value of number: ' .. tostring(number))");
     }
 
-    int ChangeIntInLua(lua_State *lua, int i)
+    int ChangeIntInLua(lua_State *lua, int number)
     {
         // Push integer value onto the stack
-        lua_pushinteger(lua, i);
+        lua_pushinteger(lua, number);
         // Set a global variable in the current environment
-        lua_setglobal(lua, "i");
+        lua_setglobal(lua, "number");
 
         // Execute command to print its value
-        luaL_dostring(lua, "print('Original value: ' .. tostring(i))");
+        luaL_dostring(lua, "print('Original value: ' .. tostring(number))");
         // Change the value of the variable
-        luaL_dostring(lua, "i = 10");
+        luaL_dostring(lua, "number = 10");
         // Retrieve the global variable from the state
-        lua_getglobal(lua, "i");
+        lua_getglobal(lua, "number");
         // Returns the integer value
-        i = lua_tointeger(lua, -1);
+        number = lua_tointeger(lua, -1);
 
         lua_pop(lua, 1);
-        return i;
+        return number;
     }
 }
 
@@ -57,10 +57,10 @@ int main(int argc, char *argv[])
     HelloFromLua(lua);
 
     // Declare a variable which will be print from Lua
-    int i = 5;
-    PassIntToLua(lua, i);
+    int number = 5;
+    PassIntToLua(lua, number);
 
-    int x = ChangeIntInLua(lua, i);
+    int x = ChangeIntInLua(lua, number);
     printf("New value: %d\n", x);
 
     // Destroy all objects in the Lua state; Clean up

@@ -23,3 +23,12 @@ cd exercise
 
 Currently works on the following platforms:
 - Linux
+
+## Output:
+```bash
+Swapnil says hello
+Value of i: 5
+Original value: 5
+New value: 10
+```
+You can find the complete output in the [output](./output) file.
