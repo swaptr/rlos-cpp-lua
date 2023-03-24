@@ -14,9 +14,12 @@ cmake ..
 make
 ```
 
-This will generate a binary for our project `exercise` in it's respective directory.
+This will generate a binary for our project `exercise`.
 This can be run with this following command:
 ```bash
 cd exercise
 ./exercise
 ```
+
+Currently works on the following platforms:
+- Linux
