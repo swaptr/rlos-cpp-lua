@@ -1,12 +1,19 @@
 # rlos-cpp-lua
 
 ## How to build
-This project contains `lua` as a submodule.
+This project contains `lua` as a submodule. To clone this repository with the Lua submodule run this command.
 ```bash
 git clone --recursive git@github.com:swaptr/rlos-cpp-lua.git
 ```
 
-Run these commands in the root of the directory:
+To build this project, run the following commands in the root of the directory.
+```bash
+cmake -S . -B build
+make -C build
+```
+
+OR if you prefer the classic way.
+
 ```bash
 mkdir build
 cd build
